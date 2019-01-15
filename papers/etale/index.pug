@@ -118,6 +118,104 @@ block content
                         B & \mapright{ι_B} & Im(B) \\
                     \end{array}
                     $$
+                code.
+                  isÉtaleMap (A B: U) (f: A -> B): U
+                    = isPullbackSq A iA B (Im B) x y w f h where
+                    iA : U = Im A
+                    iB : U = Im B
+                    x: iA -> iB = ImApp  A B f
+                    y:  B -> iB = ImUnit B
+                    w:  A -> iA = ImUnit A
+                    c1: A -> iB = o A iA iB x w
+                    c2: A -> iB = o A B  iB y f
+                    T2: U = (a:A) -> Path iB (c1 a) (c2 a)
+                    h: T2 = \(a : A) -> &lt;i&gt; ImNaturality A B f a @ -i
+                br.
+                code.
+                  EtaleMap (A B: U): U
+                    = (f: A -> B)
+                    * isÉtaleMap A B f
+                p.
+                    <b>Definition</b> (Infinitesimal Close).
+                    Let $x,y: A$, then we have a type which could be
+                    read x is infinitesimally close to y and is given as:
+                    $$
+                        x \sim y =_{def} ι_A (x) = ι_B (y).
+                    $$
+                code.
+                  isInfinitesimalClose (X: U) (a x': X): U
+                    = Path (Im X) (ImUnit X a) (ImUnit X x')
+                p.
+                    <b>Definition</b> (Formal Disk).
+                    Let $A$ be a type and $a:A$. The type $\mathbb{D}_a$
+                    defined below in three equivalent ways is called
+                    the formal disk at a:
+                    i) $\mathbb{D}_a$ is the sum of all point infinitesimal close to a;
+                    $$
+                      \mathbb{D}_a =_{def} \sum_{x:A} x \sim a
+                    $$
+                    ii) $\mathbb{D}_a$ is a fiber of $ι_A$ at $ι_A(a)$;
+                    iii) $\mathbb{D}_a$ is defined as a pullback square:
+                    $$
+                    \begin{array}{ccc}
+                        \mathbb{D}_a & \mapright{} & 1 \\
+                        \mapdown{} & \square & \mapdown{* \mapsto ι_A(a)} \\
+                        A & \mapright{ι_A} & Im(A) \\
+                    \end{array}
+                    $$
+                code.
+                  formalDisc (X: U) (a: X): U
+                    = (x': X) * isInfinitesimalClose X a x'
+                p.
+                    <b>Definition</b> (Differential).
+                    If $f: A \rightarrow B$ is a type, there is a dependent function
+                    $$
+                        df : \prod_{x:A} \mathbb{D}_x \rightarrow \mathbb{D}_{f(x)}
+                    $$
+                    defined as
+                    $$
+                       df_a =_{def} (x,ε) \mapsto (f(x),η^{−1}(x)•Im(f(ε))•η_f(x))
+                    $$
+                code.
+                  differential (X Y: U) (f: X -> Y) (x: X)
+                    : formalDisc X x -> formalDisc Y (f x)
+                p.
+                    <b>Definition</b> (Forma Disk Bundle).
+                    Let $A$ be a type. The type $T_\infty(A)$
+                    defined in one of the equivalent ways below
+                    is called the formal disk bundle of $A$:
+                    i) $T_\infty(A)$ is the sum over all formal disks in A:
+                    $$
+                      T_\infty(A) =_{def} \sum_{x:A}\mathbb{D}_x
+                    $$
+                    ii) $T_\infty(A)$ is defined by pullback square:
+                    $$
+                    \begin{array}{ccc}
+                        T_\infty(A) & \mapright{} & A \\
+                        \mapdown{} & \square & \mapdown{ι_A} \\
+                        A & \mapright{ι_A} & Im(A) \\
+                    \end{array}
+                    $$
+                code.
+                  formalDiscBundle (A: U): U
+                    = (a: A) * formalDisc A a
+                p.
+                    <b>Definition</b> (Induced map).
+                    For a map $f : A \rightarrow B$ there is an
+                    induced map on the formal disk bundles, given as
+                    $$
+                        T_\infty(A) =_{def} (a,ε) \mapsto (f(a),df_a(ε))
+                    $$
+                p.
+                    <b>Definition</b> (Homogeneous structure).
+                    A type $A$ is homogeneous, if there are terms of the following types:
+                    i) $e:A$; ii) $t: \prod_{x:A} A = A$; iii) $p: \prod_{x:A}t_x(e) = x$.
+                code.
+                  homogeneous (A: U): U
+                    = (e: A)
+                    * (translationsFamily: (x: A) -> Path U A A)
+                    * ((x: A) -> Path A (transport (translationsFamily x) e) x)
+                br.
 
     include ../../footer.pug
 
