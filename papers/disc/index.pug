@@ -48,17 +48,22 @@ block content
     article.main
         .om
             section
-                h1 ÉTALE SPACES
+                h1 DIFFERENTIAL GEOMETRY
         aside <a href="https://tonpa.guru">Максим Сохацький</a>
             time 15 JAN 2019
         .om
             section
+                p.
+                    Here is very short intro to formal differential geometry.
+                    It contains the notion of étale maps and formal disk bundles.
                 figure.
                     $$\def\mapright#1{\xrightarrow{{#1}}}
                       \def\mapdown#1{\Big\downarrow\rlap{\raise2pt{\scriptstyle{#1}}}}
                       \def\mapdiagl#1{\vcenter{\searrow}\rlap{\raise2pt{\scriptstyle{#1}}}}
                       \def\mapdiagr#1{\vcenter{\swarrow}\rlap{\raise2pt{\scriptstyle{#1}}}}
                     $$
+
+                h1 ÉTALE MAPS
                 p.
                     <b>Definition</b> (Homotopy Pullback).
                     The pullback of the first diagram (which is called cospan)
@@ -146,7 +151,7 @@ block content
                   isInfinitesimalClose (X: U) (a x': X): U
                     = Path (Im X) (ImUnit X a) (ImUnit X x')
                 br.
-                h1 FORMAL DISK
+                h1 FORMAL DISK BUNDLE
                 p.
                     <b>Definition</b> (Formal Disk).
                     Let $A$ be a type and $a:A$. The type $\mathbb{D}_a$

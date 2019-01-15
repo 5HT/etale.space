@@ -19,11 +19,13 @@
                         tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']],
                                    processEscapes: true }
                     };
-</script><article class="main"><div class="om"><section><h1>ÉTALE SPACES</h1></section></div><aside><a href="https://tonpa.guru">Максим Сохацький</a><time>15 JAN 2019</time></aside><div class="om"><section><figure>$$\def\mapright#1{\xrightarrow{{#1}}}
+</script><article class="main"><div class="om"><section><h1>DIFFERENTIAL GEOMETRY</h1></section></div><aside><a href="https://tonpa.guru">Максим Сохацький</a><time>15 JAN 2019</time></aside><div class="om"><section><p>Here is very short intro to formal differential geometry.
+It contains the notion of étale maps and formal disk bundles.</p><figure>$$\def\mapright#1{\xrightarrow{{#1}}}
   \def\mapdown#1{\Big\downarrow\rlap{\raise2pt{\scriptstyle{#1}}}}
   \def\mapdiagl#1{\vcenter{\searrow}\rlap{\raise2pt{\scriptstyle{#1}}}}
   \def\mapdiagr#1{\vcenter{\swarrow}\rlap{\raise2pt{\scriptstyle{#1}}}}
-$$</figure><p><b>Definition</b> (Homotopy Pullback).
+$$
+</figure><h1>ÉTALE MAPS</h1><p><b>Definition</b> (Homotopy Pullback).
 The pullback of the first diagram (which is called cospan)</p><figure>$$
 \begin{array}{ccc}
     & & B \\
@@ -82,7 +84,7 @@ read x is infinitesimally close to y and is given as:
 $$
     x \sim y =_{def} ι_A (x) = ι_B (y).
 $$</p><code>isInfinitesimalClose (X: U) (a x': X): U
-  = Path (Im X) (ImUnit X a) (ImUnit X x')</code><br><h1>FORMAL DISK</h1><p><b>Definition</b> (Formal Disk).
+  = Path (Im X) (ImUnit X a) (ImUnit X x')</code><br><h1>FORMAL DISK BUNDLE</h1><p><b>Definition</b> (Formal Disk).
 Let $A$ be a type and $a:A$. The type $\mathbb{D}_a$
 defined below in three equivalent ways is called
 the formal disk at a:
