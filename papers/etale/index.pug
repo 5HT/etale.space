@@ -145,6 +145,8 @@ block content
                 code.
                   isInfinitesimalClose (X: U) (a x': X): U
                     = Path (Im X) (ImUnit X a) (ImUnit X x')
+                br.
+                h1 FORMAL DISK
                 p.
                     <b>Definition</b> (Formal Disk).
                     Let $A$ be a type and $a:A$. The type $\mathbb{D}_a$
@@ -200,6 +202,19 @@ block content
                   formalDiscBundle (A: U): U
                     = (a: A) * formalDisc A a
                 p.
+                    <b>Theorem</b> (Hennion).
+                    The tangent complex of a derived algebraic stack $X$
+                    is equivalently the (sheaf of modules of) sections
+                    of the formal neighbourhood of the diagonal of $X$.
+                    We may think of $T_\infty(X)$ as being the tangent complex of $X$.
+                p.
+                    <b>Theorem</b> (Kock).
+                    The infinitesimal disk bundle construction is
+                    left adjoint to the jet comonad:
+                    $$
+                        T_\infty \vdash Jet
+                    $$
+                p.
                     <b>Definition</b> (Induced map).
                     For a map $f : A \rightarrow B$ there is an
                     induced map on the formal disk bundles, given as
@@ -215,7 +230,6 @@ block content
                     = (e: A)
                     * (translationsFamily: (x: A) -> Path U A A)
                     * ((x: A) -> Path A (transport (translationsFamily x) e) x)
-                br.
 
     include ../../footer.pug
 

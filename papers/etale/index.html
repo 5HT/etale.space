@@ -82,7 +82,7 @@ read x is infinitesimally close to y and is given as:
 $$
     x \sim y =_{def} ι_A (x) = ι_B (y).
 $$</p><code>isInfinitesimalClose (X: U) (a x': X): U
-  = Path (Im X) (ImUnit X a) (ImUnit X x')</code><p><b>Definition</b> (Formal Disk).
+  = Path (Im X) (ImUnit X a) (ImUnit X x')</code><br><h1>FORMAL DISK</h1><p><b>Definition</b> (Formal Disk).
 Let $A$ be a type and $a:A$. The type $\mathbb{D}_a$
 defined below in three equivalent ways is called
 the formal disk at a:
@@ -124,7 +124,16 @@ $$
     A & \mapright{ι_A} & Im(A) \\
 \end{array}
 $$</p><code>formalDiscBundle (A: U): U
-  = (a: A) * formalDisc A a</code><p><b>Definition</b> (Induced map).
+  = (a: A) * formalDisc A a</code><p><b>Theorem</b> (Hennion).
+The tangent complex of a derived algebraic stack $X$
+is equivalently the (sheaf of modules of) sections
+of the formal neighbourhood of the diagonal of $X$.
+We may think of $T_\infty(X)$ as being the tangent complex of $X$.</p><p><b>Theorem</b> (Kock).
+The infinitesimal disk bundle construction is
+left adjoint to the jet comonad:
+$$
+    T_\infty \vdash Jet
+$$</p><p><b>Definition</b> (Induced map).
 For a map $f : A \rightarrow B$ there is an
 induced map on the formal disk bundles, given as
 $$
@@ -134,4 +143,5 @@ A type $A$ is homogeneous, if there are terms of the following types:
 i) $e:A$; ii) $t: \prod_{x:A} A = A$; iii) $p: \prod_{x:A}t_x(e) = x$.</p><code>homogeneous (A: U): U
   = (e: A)
   * (translationsFamily: (x: A) -> Path U A A)
-  * ((x: A) -> Path A (transport (translationsFamily x) e) x)</code><br></section></div></article><footer class="footer"><a href="https://tonpa.guru/"><img class="footer__logo" src="https://longchenpa.guru/seal.png" width="50"></a><span class="footer__copy">2019 &copy; <a href="https://etale.space/" style="color:Lavender;">Étale Infinity</a></span><script src="https://groupoid.space/highlight.js"></script></footer>
+  * ((x: A) -> Path A (transport (translationsFamily x) e) x)
+</code></section></div></article><footer class="footer"><a href="https://tonpa.guru/"><img class="footer__logo" src="https://longchenpa.guru/seal.png" width="50"></a><span class="footer__copy">2019 &copy; <a href="https://etale.space/" style="color:Lavender;">Étale Infinity</a></span><script src="https://groupoid.space/highlight.js"></script></footer>
