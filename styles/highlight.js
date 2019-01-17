@@ -11,16 +11,3 @@ function highlight() {
 
 highlight();
 
-var lastScrollPosition = 0;
-var ticking = false;
-window.addEventListener('scroll', function(e) {
-    lastScrollPosition = window.scrollY;
-    if (!ticking) {
-        window.requestAnimationFrame(function() {
-//        doSomething(lastScrollPosition);
-        ticking = false;
-        });
-    }
-    ticking = true;
-});
-
