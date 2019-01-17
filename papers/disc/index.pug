@@ -80,13 +80,6 @@ block content
                     ImInduction (A: U) (B: Im A -> U) (x: (a: Im A) -> isCoreduced (B a))
                                 (y: (a: A) -> B (ImUnit A a)) : (a: Im A) -> B a
                 br.
-                p.
-                    <b>Definition</b> (Naturality Square).
-                code.
-                    ImApp (A B: U) (f: A -> B) : Im A -> Im B
-                    ImNaturality (A B: U) (f: A -> B) : (a: A) ->
-                      Path (Im B) ((ImUnit B) (f a)) ((ImApp A B f) (ImUnit A a))
-                br.
 
                 h1 ÉTALE MAP
                 p.
@@ -99,6 +92,15 @@ block content
                         B & \mapright{ι_B} & Im(B) \\
                     \end{array}
                     $$
+                    with induced naturality equation:
+                    $$
+                        \eta_f(x) : Im(f(\iota_A(x))) = \iota_B(Im(f(x))).
+                    $$
+                code.
+                    ImApp (A B: U) (f: A -> B) : Im A -> Im B
+                    ImNaturality (A B: U) (f: A -> B) : (a: A) ->
+                      Path (Im B) ((ImUnit B) (f a)) ((ImApp A B f) (ImUnit A a))
+                br.
                 code.
                   isÉtaleMap (A B: U) (f: A -> B): U
                     = isPullbackSq A iA B (Im B) x y w f h where
