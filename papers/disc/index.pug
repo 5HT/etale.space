@@ -80,6 +80,8 @@ block content
                     ImInduction (A: U) (B: Im A -> U) (x: (a: Im A) -> isCoreduced (B a))
                                 (y: (a: A) -> B (ImUnit A a)) : (a: Im A) -> B a
                 br.
+                p.
+                    <b>Definition</b> (Naturality Square).
                 code.
                     ImApp (A B: U) (f: A -> B) : Im A -> Im B
                     ImNaturality (A B: U) (f: A -> B) : (a: A) ->
