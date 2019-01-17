@@ -25,40 +25,13 @@ It contains the notion of étale maps and formal disk bundles.</p><figure>$$\def
   \def\mapdiagl#1{\vcenter{\searrow}\rlap{\raise2pt{\scriptstyle{#1}}}}
   \def\mapdiagr#1{\vcenter{\swarrow}\rlap{\raise2pt{\scriptstyle{#1}}}}
 $$
-</figure><h1>ÉTALE MAPS</h1><p><b>Definition</b> (Homotopy Pullback).
-The pullback of the first diagram (which is called cospan)</p><figure>$$
-\begin{array}{ccc}
-    & & B \\
-    & & \mapdown{\mathbf{g}} \\
-    A & \mapright{\mathbf{f}} & C \\
-\end{array}
-$$</figure><figure>$$
-\begin{array}{ccc}
-    A \times^{h}_{C} B & \mapright{\mathbf{pb_2}} & B \\
-    \mapdown{\mathbf{pb_1}} & \mapdiagl{\mathbf{pb_3}} & \mapdown{\mathbf{g}} \\
-    A & \mapright{\mathbf{f}} & C \\
-\end{array}
-$$</figure><figure>$$
-    A \times^{h}_{C} B = \Sigma_A\Sigma_B C^I \\
-    = \left\{ (x,y,h) : \Sigma_X\Sigma_Y C^I | h(0)=f(x), h(1)=g(y) \right\}
-$$</figure><p>is a $X \times^h_C Y$
-together with the projection maps $pb_{1,2,3}$ making the second
-diagram commute up to homotopy $H(x,y,h,t) = h(t)$.</p><p><b>Definition</b> (Homotopy Pullback Square). A homotopy pullback or cospan
-is called a homotopy pullback square if there exists a homotopy
-equivalence $\phi : Z \rightarrow A \times_C^h B$ satisfying
-$z_1 : Z \rightarrow A = pb_1 \circ \phi$
-and $z_2: Z \rightarrow B = pb_2 \circ \phi$. Map $\phi$ is called induced map.</p><figure>$$
-    \begin{array}{ccc}
-        X \times^{h}_{C} Y & \mapright{\mathbf{pb_2}} & B \\
-        \mapdown{\mathbf{pb_1}} & \square_{(Z,z_1,z_2)} & \mapdown{\mathbf{g}} \\
-        A & \mapright{\mathbf{f}} & C \\
-    \end{array}
-$$</figure><p><b>Definition</b> (Infinitesimal Shape Modality). The two maps
+</figure><h1>INSINITESIMAL MODALITY</h1><p><b>Definition</b> (Infinitesimal Shape Modality). The two maps
 $Im∶ U \rightarrow U$ and $\iota_A ∶ A \rightarrow Im(A)$ are called <i>shape modality</i> if
 i) $\iota_A$ is an equivalence, the type $A$ is then called coreduced.; ii)
 identity types of coreduced types are coreduced; iii) if $B∶Im(A)\rightarrow U$
 is a dependent type such that for all $a∶Im(A)$ the type $B(a)$ is coreduced,
-then we can define a section of $B$ by induction.</p><p><b>Definition</b> (Étale map). A map $f:A \rightarrow B$ is <i>formally étale</i>
+then we can define a section of $B$ by induction.
+</p><h1>ÉTALE MAP</h1><p><b>Definition</b> (Étale map). A map $f:A \rightarrow B$ is <i>formally étale</i>
 if its naturality square is a pullback:
 $$
 \begin{array}{ccc}
@@ -140,7 +113,8 @@ For a map $f : A \rightarrow B$ there is an
 induced map on the formal disk bundles, given as
 $$
     T_\infty(A) =_{def} (a,ε) \mapsto (f(a),df_a(ε))
-$$</p><p><b>Definition</b> (Homogeneous structure).
+$$
+</p><h1>MANIFOLDS</h1><p><b>Definition</b> (Homogeneous structure).
 A type $A$ is homogeneous, if there are terms of the following types:
 i) $e:A$; ii) $t: \prod_{x:A} A = A$; iii) $p: \prod_{x:A}t_x(e) = x$.</p><code>homogeneous (A: U): U
   = (e: A)

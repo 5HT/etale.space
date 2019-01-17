@@ -1,0 +1,57 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="author" content="Maxim Sokhatsky"><meta name="twitter:site" content="@5HT"><meta name="twitter:creator" content="@5HT"><meta property="og:title" content="Presheaf Type Theories"><meta property="og:description" content="Here is shown the preshifification of cartesian closed categories or topoi."><meta property="og:type" content="website"><meta property="fb:app_id" content="118554188236439"><meta property="og:url" content="https://sheaf.space"><link rel="stylesheet" href="https://groupoid.space/main.css"><title>LIMITS</title></head><body class="content"></body></html><script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script><script>window.MathJax = { jax: ["input/TeX", "input/MathML", "input/AsciiMath", "output/CommonHTML", "output/NativeMML"],
+                        TeX: { extensions: ["AMSmath.js", "AMSsymbols.js", "autoload-all.js"] },
+                        extensions: ["tex2jax.js", "asciimath2jax.js", "mml2jax.js", "MathMenu.js", "MathZoom.js"],
+                        "HTML-CSS": { imageFont: null },
+                        AuthorInit: function() {
+                            MathJax.Hub.Register.StartupHook("TeX AMSmath Ready", function() {
+                                var TEX = MathJax.InputJax.TeX;
+                                TEX.Definitions.Add({
+                                    macros: {
+                                      llparenthesis: ['Macro', '\\mathopen{\u2987}'],
+                                      rrparenthesis: ['Macro', '\\mathclose{\u2988}'],
+                                      llbracket:     ['Macro', '\\mathopen{\u27E6}'],
+                                      rrbracket:     ['Macro', '\\mathclose{\u27E7}'],
+                                      incmap:        ['Macro', '\\mathclose{\u21AA}'],
+                                    }
+                                });
+                            });
+                        },
+                        tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']],
+                                   processEscapes: true }
+                    };
+</script><article class="main"><div class="om"><section><h1>LIMITS</h1></section></div><aside><a href="https://tonpa.guru">Максим Сохацький</a><time>15 JAN 2019</time></aside><div class="om"><section><p>It contains the notion of homotopy pullback and pushout,
+fibers and cofibers, kernels and cokernels.</p><figure>$$\def\mapright#1{\xrightarrow{{#1}}}
+  \def\mapdown#1{\Big\downarrow\rlap{\raise2pt{\scriptstyle{#1}}}}
+  \def\mapdiagl#1{\vcenter{\searrow}\rlap{\raise2pt{\scriptstyle{#1}}}}
+  \def\mapdiagr#1{\vcenter{\swarrow}\rlap{\raise2pt{\scriptstyle{#1}}}}
+$$
+</figure><h1>PULLBACK</h1><p><b>Definition</b> (Homotopy Pullback).
+The pullback of the first diagram (which is called cospan)</p><figure>$$
+\begin{array}{ccc}
+    & & B \\
+    & & \mapdown{\mathbf{g}} \\
+    A & \mapright{\mathbf{f}} & C \\
+\end{array}
+$$</figure><figure>$$
+\begin{array}{ccc}
+    A \times^{h}_{C} B & \mapright{\mathbf{pb_2}} & B \\
+    \mapdown{\mathbf{pb_1}} & \mapdiagl{\mathbf{pb_3}} & \mapdown{\mathbf{g}} \\
+    A & \mapright{\mathbf{f}} & C \\
+\end{array}
+$$</figure><figure>$$
+    A \times^{h}_{C} B = \Sigma_A\Sigma_B C^I \\
+    = \left\{ (x,y,h) : \Sigma_X\Sigma_Y C^I | h(0)=f(x), h(1)=g(y) \right\}
+$$</figure><p>is a $X \times^h_C Y$
+together with the projection maps $pb_{1,2,3}$ making the second
+diagram commute up to homotopy $H(x,y,h,t) = h(t)$.</p><p><b>Definition</b> (Homotopy Pullback Square). A homotopy pullback or cospan
+is called a homotopy pullback square if there exists a homotopy
+equivalence $\phi : Z \rightarrow A \times_C^h B$ satisfying
+$z_1 : Z \rightarrow A = pb_1 \circ \phi$
+and $z_2: Z \rightarrow B = pb_2 \circ \phi$. Map $\phi$ is called induced map.</p><figure>$$
+    \begin{array}{ccc}
+        X \times^{h}_{C} Y & \mapright{\mathbf{pb_2}} & B \\
+        \mapdown{\mathbf{pb_1}} & \square_{(Z,z_1,z_2)} & \mapdown{\mathbf{g}} \\
+        A & \mapright{\mathbf{f}} & C \\
+    \end{array}
+$$
+</figure></section></div></article><footer class="footer"><a href="https://tonpa.guru/"><img class="footer__logo" src="https://longchenpa.guru/seal.png" width="50"></a><span class="footer__copy">2019 &copy; <a href="https://etale.space/" style="color:Lavender;">Étale Infinity</a></span><script src="https://groupoid.space/highlight.js"></script></footer>
