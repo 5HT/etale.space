@@ -77,16 +77,13 @@ block content
                     isCoreduced (A:U): U = isEquiv A (Im A) (ImUnit A)
                     ImCoreduced (A:U): isCoreduced (Im A)
                     ImRecursion (A B: U) (c: isCoreduced B) (f: A -> B) : Im A -> B
-                    ImApp (A B: U) (f: A -> B) : Im A -> Im B
-                br.
-                code.
-                    ImNaturality (A B: U) (f: A -> B) : (a: A) ->
-                      Path (Im B) ((ImUnit B) (f a)) ((ImApp A B f) (ImUnit A a))
-
                     ImInduction (A: U) (B: Im A -> U) (x: (a: Im A) -> isCoreduced (B a))
                                 (y: (a: A) -> B (ImUnit A a)) : (a: Im A) -> B a
-
-
+                br.
+                code.
+                    ImApp (A B: U) (f: A -> B) : Im A -> Im B
+                    ImNaturality (A B: U) (f: A -> B) : (a: A) ->
+                      Path (Im B) ((ImUnit B) (f a)) ((ImApp A B f) (ImUnit A a))
                 br.
 
                 h1 ÉTALE MAP
