@@ -4,7 +4,7 @@
   "description": "Groupoid Infinity is doing research in type theory, term encodings, program extraction and effective compilation. Infinity stack consists of two tools:",
   "main": "",
   "scripts": {
-    "start": "node-sass ./styles -o ./ && pug ./ ",
+    "start": "node-sass ./styles -o ./styles && pug ./ ",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
