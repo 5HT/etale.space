@@ -70,7 +70,7 @@ block content
                     <b>Definition</b> (de Rham shape modality).
                     de Rham cohesive homotopy type of A is defined as a homotopy
                     cofiber of the unit of the shape modality:
-                    $$\Omega =_{def}\ ʃ_{dR} A =_{def} \mathrm{cofib}\ \Big(A \to ʃ A \Big)$$.
+                    $$ʃ_{dR} A =_{def} \mathrm{cofib}\ \Big(A \to ʃ A \Big)$$.
                     or the (looping opetaion of) the cokernel of the unit of the shape modality.
                     It is also called de Rham shape modality.
                     \begin{array}{ccc}
@@ -82,12 +82,12 @@ block content
                     <b>Definition</b> (de Rham flat modality).
                     de Rham complex with coefficients in A is defined as the homotopy fiber
                     of the counit of the flat modality:
-                    $$\mathbb{B} =_{def} \flat_{dR} A =_{def} \mathrm{fib}\ \Big( \flat A \to A \Big)$$.
+                    $$\flat_{dR} A =_{def} \mathrm{fib}\ \Big( \flat A \to A \Big)$$.
                     or the (delooping opetaion of) the cokernel of the unit of the shape modality.
                     It is also called de Rham flat modality.
                     $$
                     \begin{array}{ccc}
-                        \flat_{dR} A & \mapright{} & \flat A \\
+                        \flat_{dR} A  & \mapright{} & \flat A \\
                         \mapdown{} & \square & \mapdown{} \\
                         * & \mapright{} & A \\
                     \end{array}
@@ -104,6 +104,53 @@ block content
                     between $\infty$-groups of $\mathbb{H}$ and uniquely pointed
                     connected objects $\mathbb{B}\mathrm{G}$ in $\mathbb{H}$ which are doneted $\mathbb{H}_{conn}$.
                     Where $\Omega$ is a looping and $\mathbb{B}$ is a delooping operations.
+                p.
+                    <b>Definition</b> (Loop Space Object).
+                    Loop space objects are defined in any $\infty$-category $C$
+                    with homotopy pullbacks: for any pointed object $X$ of $C$
+                    with point $* \rightarrow X$, its loop space object is the homotopy pullback
+                    $\Omega(X)$ of this point along itself:
+                    $$
+                    \begin{array}{ccc}
+                        \Omega(X)  & \mapright{} & * \\
+                        \mapdown{} & \square & \mapdown{} \\
+                        * & \mapright{} & X \\
+                    \end{array}
+                    $$
+                p.
+                    <b>Definition</b> (Delooping).
+                    if $X$ is given and a homotopy pullback diagram
+                    $$
+                    \begin{array}{ccc}
+                        X & \mapright{} & * \\
+                        \mapdown{} & \square & \mapdown{} \\
+                        * & \mapright{} & \mathbb{B}X \\
+                    \end{array}
+                    $$
+                    exists, with the point $* \rightarrow \mathbb{B}X$
+                    being essentially unique, by the above $X$ has been
+                    realized as the loop space object of $\mathbb{B}X$.
+                    $\mathbb{B}X$ is called delooping of X:
+                    $$
+                        X = \Omega\mathbb{B}X.
+                    $$
+                p.
+                    <b>Definition</b> (Maurer-Cartan form).
+                    For $G \in \text{Group}(\mathbb{H})$ and $\infty$-group in the cohesive
+                    $\infty$-topos $\mathbb{H}$ Maurer-Cartan form $\theta$ is defines as
+                    $$
+                        \theta_G =_{def} G \rightarrow \flat_{dR}\mathbb{B}G
+                    $$
+                    for the $G$-valued de Rham cocycle on $G$ induced by pullback pasting:
+                    $$
+                      \begin{array}{ccc}
+                        G & \mapright{} & * \\
+                        \mapdown{\theta} & \square & \mapdown{} \\
+                        \flat_{dR}\mathbb{B}G  & \mapright{} & \flat \mathbb{B}G \\
+                        \mapdown{} & \square & \mapdown{} \\
+                        * & \mapright{} & \mathbb{B}G \\
+                      \end{array}
+                    $$
                 br.
 
                 h1 LITERATURE
