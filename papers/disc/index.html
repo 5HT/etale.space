@@ -30,8 +30,18 @@ $Im∶ U \rightarrow U$ and $\iota_A ∶ A \rightarrow Im(A)$ are called <i>shap
 i) $\iota_A$ is an equivalence, the type $A$ is then called coreduced.; ii)
 identity types of coreduced types are coreduced; iii) if $B∶Im(A)\rightarrow U$
 is a dependent type such that for all $a∶Im(A)$ the type $B(a)$ is coreduced,
-then we can define a section of $B$ by induction. The $Im(A)$ is called de Rham space.
-</p><h1>ÉTALE MAP</h1><p><b>Definition</b> (Étale map). A map $f:A \rightarrow B$ is <i>formally étale</i>
+then we can define a section of $B$ by induction. The $Im(A)$ is called de Rham space.</p><code>Im : U -> U
+ImUnit (A: U) : A -> Im A
+isCoreduced (A:U): U = isEquiv A (Im A) (ImUnit A)
+ImCoreduced (A:U): isCoreduced (Im A)
+ImRecursion (A B: U) (c: isCoreduced B) (f: A -> B) : Im A -> B
+ImApp (A B: U) (f: A -> B) : Im A -> Im B</code><br><code>ImNaturality (A B: U) (f: A -> B) : (a: A) ->
+  Path (Im B) ((ImUnit B) (f a)) ((ImApp A B f) (ImUnit A a))
+
+ImInduction (A: U) (B: Im A -> U) (x: (a: Im A) -> isCoreduced (B a))
+            (y: (a: A) -> B (ImUnit A a)) : (a: Im A) -> B a
+
+</code><br><h1>ÉTALE MAP</h1><p><b>Definition</b> (Étale map). A map $f:A \rightarrow B$ is <i>formally étale</i>
 if its naturality square is a pullback:
 $$
 \begin{array}{ccc}
