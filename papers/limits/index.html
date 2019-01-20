@@ -81,8 +81,8 @@ add the relation $(w_0,t) ~ (w_1,s)$ for all $s,t \in I$.</p><code>data pushout 
   = pullback A unit B f (\(x: unit) -> y)
 </code><p><b>Definition</b> (Fiber Pullback).</p><code>fiberPullback (A B: U) (f: A -> B) (y: B)
   : pullbackSq (hofiber A B f y)
-</code><p><b>Definition</b> (Homotopy Cofiber).</p><code>cofiber (A B: U) (f: A -> B): U
-  = pushout B unit A f (\(x: A) -> tt)
+</code><p><b>Definition</b> (Homotopy Cofiber).</p><code>cofiber (A B: U) (f: B -> A): U
+  = pushout A unit B f (\(x: B) -> tt)
 </code><p><b>Defintion</b> (Kernel).</p><code>kernel (A B: U) (f: A -> B): U
   = pullback A A B f f
 </code><p><b>Definition</b> (Cokernel).</p><code>cokernel (A B: U) (f: B -> A): U

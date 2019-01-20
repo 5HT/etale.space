@@ -161,8 +161,8 @@ block content
                 p.
                     <b>Definition</b> (Homotopy Cofiber).
                 code.
-                  cofiber (A B: U) (f: A -> B): U
-                    = pushout B unit A f (\(x: A) -> tt)
+                  cofiber (A B: U) (f: B -> A): U
+                    = pushout A unit B f (\(x: B) -> tt)
 
                 p.
                     <b>Defintion</b> (Kernel).
