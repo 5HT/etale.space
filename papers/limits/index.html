@@ -41,7 +41,10 @@ $$</figure><figure>$$
 $$</figure><figure>$$
     A \times^{h}_{C} B = \Sigma_A\Sigma_B C^I \\
     = \left\{ (x,y,h) : \Sigma_X\Sigma_Y C^I | h(0)=f(x), h(1)=g(y) \right\}
-$$</figure><p>is a $X \times^h_C Y$
+$$</figure><code>pullback (A B C:U) (f: A -> C) (g: B -> C): U
+  = (a: A)
+  * (b: B)
+  * Path C (f a) (g b)</code><p>is a $X \times^h_C Y$
 together with the projection maps $pb_{1,2,3}$ making the second
 diagram commute up to homotopy $H(x,y,h,t) = h(t)$.</p><p><b>Definition</b> (Homotopy Pullback Square). A homotopy pullback or cospan
 is called a homotopy pullback square if there exists a homotopy
@@ -53,5 +56,17 @@ and $z_2: Z \rightarrow B = pb_2 \circ \phi$. Map $\phi$ is called induced map.<
         \mapdown{\mathbf{pb_1}} & \square_{(Z,z_1,z_2)} & \mapdown{\mathbf{g}} \\
         A & \mapright{\mathbf{f}} & C \\
     \end{array}
-$$</figure><br><h1>LITERATURE</h1><p>[1]. Brian Munson and Ismar Volić. <a href="https://web.math.rochester.edu/people/faculty/doug/otherpapers/munson-volic.pdf">Cubical Homotopy Theory</a><br>
+$$</figure><code>pullbackSq (Z A B C: U) (f: A -> C) (g: B -> C) (z1: Z -> A) (z2: Z -> B): U
+  = (h: (z:Z) -> Path C ((o Z A C f z1) z) (((o Z B C g z2)) z))
+  * isEquiv Z (pullback A B C f g) (induced Z A B C f g z1 z2 h)</code><br><h1>FIBERS</h1><p><b>Definition</b> (Homotopy Fibers).</p><code>hofiber (A B: U) (f: A -> B) (y: B): U
+  = pullback A unit B f (\(x: unit) -> y)</code><p><b>Definition</b> (Fiber Pullback).</p><code>fiberPullback (A B: U) (f: A -> B) (y: B)
+  : pullbackSq (hofiber A B f y)</code><br><h1>KERNELS</h1><p><b>Defintion</b> (Kernel).</p><code>kernel (A B: U) (f: A -> B): U
+  = pullback A A B f f</code><br><h1>PUSHOUT</h1><p><b>Definition</b> (Homotopy Pushout).
+The pushout of the first diagram (which is called span)</p><code>data pushout (A B C: U) (f: C -> A) (g: C -> B)
+   = po1 (_: A)
+   | po2 (_: B)
+   | po3 (c: C) &lt;i&gt; [ (i = 0) -> po1 (f c) ,
+                      (i = 1) -> po2 (g c) ]</code><br><h1>COFIBER</h1><p><b>Definition</b> (Homotopy Cofiber).</p><code>cofiber (A B: U) (f: A -> B): U
+  = pushout B unit A f (\(x: A) -> tt)</code><br><h1>COFIBER</h1><p><b>Definition</b> (Cokernel).</p><code>cokernel (A B: U) (f: B -> A): U
+  = pushout A A B f f</code><br><h1>LITERATURE</h1><p>[1]. Brian Munson and Ismar Volić. <a href="https://web.math.rochester.edu/people/faculty/doug/otherpapers/munson-volic.pdf">Cubical Homotopy Theory</a><br>
 </p></section></div></article><link rel="stylesheet" href="https://etale.space/styles/main.css?v=4"><footer class="footer"><a href="https://tonpa.guru/"><img class="footer__logo" src="https://longchenpa.guru/seal.png" width="50"></a><span class="footer__copy">2019 &copy; <a href="https://etale.space/" style="color:Lavender;">Étale Infinity</a></span><script src="https://etale.space/styles/highlight.js?v=3"></script></footer>

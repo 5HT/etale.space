@@ -87,6 +87,11 @@ block content
                         A \times^{h}_{C} B = \Sigma_A\Sigma_B C^I \\
                         = \left\{ (x,y,h) : \Sigma_X\Sigma_Y C^I | h(0)=f(x), h(1)=g(y) \right\}
                     $$
+                code.
+                  pullback (A B C:U) (f: A -> C) (g: B -> C): U
+                    = (a: A)
+                    * (b: B)
+                    * Path C (f a) (g b)
                 p.
                     is a $X \times^h_C Y$
                     together with the projection maps $pb_{1,2,3}$ making the second
@@ -105,6 +110,59 @@ block content
                             A & \mapright{\mathbf{f}} & C \\
                         \end{array}
                     $$
+                code.
+                  pullbackSq (Z A B C: U) (f: A -> C) (g: B -> C) (z1: Z -> A) (z2: Z -> B): U
+                    = (h: (z:Z) -> Path C ((o Z A C f z1) z) (((o Z B C g z2)) z))
+                    * isEquiv Z (pullback A B C f g) (induced Z A B C f g z1 z2 h)
+                br.
+
+                h1 FIBERS
+                p.
+                    <b>Definition</b> (Homotopy Fibers).
+                code.
+                  hofiber (A B: U) (f: A -> B) (y: B): U
+                    = pullback A unit B f (\(x: unit) -> y)
+                p.
+                    <b>Definition</b> (Fiber Pullback).
+                code.
+                  fiberPullback (A B: U) (f: A -> B) (y: B)
+                    : pullbackSq (hofiber A B f y)
+                br.
+
+                h1 KERNELS
+                p.
+                    <b>Defintion</b> (Kernel).
+                code.
+                  kernel (A B: U) (f: A -> B): U
+                    = pullback A A B f f
+                br.
+
+                h1 PUSHOUT
+                p.
+                    <b>Definition</b> (Homotopy Pushout).
+                    The pushout of the first diagram (which is called span)
+                code.
+                  data pushout (A B C: U) (f: C -> A) (g: C -> B)
+                     = po1 (_: A)
+                     | po2 (_: B)
+                     | po3 (c: C) &lt;i&gt; [ (i = 0) -> po1 (f c) ,
+                                        (i = 1) -> po2 (g c) ]
+                br.
+
+                h1 COFIBER
+                p.
+                    <b>Definition</b> (Homotopy Cofiber).
+                code.
+                  cofiber (A B: U) (f: A -> B): U
+                    = pushout B unit A f (\(x: A) -> tt)
+                br.
+
+                h1 COFIBER
+                p.
+                    <b>Definition</b> (Cokernel).
+                code.
+                  cokernel (A B: U) (f: B -> A): U
+                    = pushout A A B f f
                 br.
 
                 h1 LITERATURE
