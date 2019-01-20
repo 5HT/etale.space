@@ -27,11 +27,12 @@ fibers and cofibers, kernels and cokernels.</p><figure>$$\def\mapright#1{\xright
   \def\mapdiagr#1{\vcenter{\swarrow}\rlap{\raise2pt{\scriptstyle{#1}}}}
 $$
 </figure><h1>PULLBACK</h1><p><b>Definition</b> (Cospan).
+The two maps $f,g$ with the same codomain $C$ are called <i>cospan</i>:
 $$
   A \mapright{f} C \mapleft{g} B.
 $$</p><p><b>Definition</b> (Homotopy Pullback).
 The homotopy pullback or homotopy limit
-(denoted by $\mathrm{holim}$) of the cospan diagram
+(denoted as $\mathrm{holim}$) of the cospan diagram
 is the subspace of $A \times B \times C^I$ defined as
 $$
     \mathrm{holim}(A \rightarrow C \leftarrow B) \\
@@ -61,8 +62,20 @@ $$</figure><code>pullbackSq (Z A B C: U) (f: A -> C) (g: B -> C) (z1: Z -> A) (z
   * isEquiv Z (pullback A B C f g) (induced Z A B C f g z1 z2 h)</code><br><h1>FIBERS</h1><p><b>Definition</b> (Homotopy Fibers).</p><code>hofiber (A B: U) (f: A -> B) (y: B): U
   = pullback A unit B f (\(x: unit) -> y)</code><p><b>Definition</b> (Fiber Pullback).</p><code>fiberPullback (A B: U) (f: A -> B) (y: B)
   : pullbackSq (hofiber A B f y)</code><br><h1>KERNELS</h1><p><b>Defintion</b> (Kernel).</p><code>kernel (A B: U) (f: A -> B): U
-  = pullback A A B f f</code><br><h1>PUSHOUT</h1><p><b>Definition</b> (Homotopy Pushout).
-The pushout of the first diagram (which is called span)</p><code>data pushout (A B C: U) (f: C -> A) (g: C -> B)
+  = pullback A A B f f</code><br><h1>PUSHOUT</h1><p><b>Definition</b> (Span).
+The two maps $f,g$ with the same domain $C$ are called <i>span</i>:
+$$
+    A \mapleft{f} C \mapright{g} B.
+$$</p><p><b>Definition</b> (Homotopy Pushout).
+The homotopy pushout or homotopy colimit (denoted as $\mathrm{hocolim}$)
+of the span diagram:
+$$
+    \mathrm{hocolim}(A \mapleft{f} C \mapright{g} B)
+      = A \sqcup B \sqcup C \times I\ / \sim,
+$$
+where $\sim$ is an equivalence relation $f(c) \sim (w,0)$ and $g(w) \sim (w,1)$
+for $w \in C$. If $C$ is a based space with basepoint $w_0$, we
+add the relation $(w_0,t) ~ (w_1,s)$ for all $s,t \in I$.</p><code>data pushout (A B C: U) (f: C -> A) (g: C -> B)
    = po1 (_: A)
    | po2 (_: B)
    | po3 (c: C) &lt;i&gt; [ (i = 0) -> po1 (f c) ,

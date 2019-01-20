@@ -66,13 +66,14 @@ block content
                 h1 PULLBACK
                 p.
                     <b>Definition</b> (Cospan).
+                    The two maps $f,g$ with the same codomain $C$ are called <i>cospan</i>:
                     $$
                       A \mapright{f} C \mapleft{g} B.
                     $$
                 p.
                     <b>Definition</b> (Homotopy Pullback).
                     The homotopy pullback or homotopy limit
-                    (denoted by $\mathrm{holim}$) of the cospan diagram
+                    (denoted as $\mathrm{holim}$) of the cospan diagram
                     is the subspace of $A \times B \times C^I$ defined as
                     $$
                         \mathrm{holim}(A \rightarrow C \leftarrow B) \\
@@ -139,8 +140,22 @@ block content
 
                 h1 PUSHOUT
                 p.
+                    <b>Definition</b> (Span).
+                    The two maps $f,g$ with the same domain $C$ are called <i>span</i>:
+                    $$
+                        A \mapleft{f} C \mapright{g} B.
+                    $$
+                p.
                     <b>Definition</b> (Homotopy Pushout).
-                    The pushout of the first diagram (which is called span)
+                    The homotopy pushout or homotopy colimit (denoted as $\mathrm{hocolim}$)
+                    of the span diagram:
+                    $$
+                        \mathrm{hocolim}(A \mapleft{f} C \mapright{g} B)
+                          = A \sqcup B \sqcup C \times I\ / \sim,
+                    $$
+                    where $\sim$ is an equivalence relation $f(c) \sim (w,0)$ and $g(w) \sim (w,1)$
+                    for $w \in C$. If $C$ is a based space with basepoint $w_0$, we
+                    add the relation $(w_0,t) ~ (w_1,s)$ for all $s,t \in I$.
                 code.
                   data pushout (A B C: U) (f: C -> A) (g: C -> B)
                      = po1 (_: A)
