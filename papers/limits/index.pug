@@ -118,27 +118,6 @@ block content
                     * isEquiv Z (pullback A B C f g) (induced Z A B C f g z1 z2 h)
                 br.
 
-                h1 FIBERS
-                p.
-                    <b>Definition</b> (Homotopy Fibers).
-                code.
-                  hofiber (A B: U) (f: A -> B) (y: B): U
-                    = pullback A unit B f (\(x: unit) -> y)
-                p.
-                    <b>Definition</b> (Fiber Pullback).
-                code.
-                  fiberPullback (A B: U) (f: A -> B) (y: B)
-                    : pullbackSq (hofiber A B f y)
-                br.
-
-                h1 KERNELS
-                p.
-                    <b>Defintion</b> (Kernel).
-                code.
-                  kernel (A B: U) (f: A -> B): U
-                    = pullback A A B f f
-                br.
-
                 h1 PUSHOUT
                 p.
                     <b>Definition</b> (Span).
@@ -165,15 +144,32 @@ block content
                                         (i = 1) -> po2 (g c) ]
                 br.
 
-                h1 COFIBER
+                h1 EXAMPLES
+
+                p.
+                    <b>Definition</b> (Homotopy Fibers).
+                code.
+                  hofiber (A B: U) (f: A -> B) (y: B): U
+                    = pullback A unit B f (\(x: unit) -> y)
+
+                p.
+                    <b>Definition</b> (Fiber Pullback).
+                code.
+                  fiberPullback (A B: U) (f: A -> B) (y: B)
+                    : pullbackSq (hofiber A B f y)
+
                 p.
                     <b>Definition</b> (Homotopy Cofiber).
                 code.
                   cofiber (A B: U) (f: A -> B): U
                     = pushout B unit A f (\(x: A) -> tt)
-                br.
 
-                h1 COKERNEL
+                p.
+                    <b>Defintion</b> (Kernel).
+                code.
+                  kernel (A B: U) (f: A -> B): U
+                    = pullback A A B f f
+
                 p.
                     <b>Definition</b> (Cokernel).
                 code.
