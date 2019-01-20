@@ -57,6 +57,7 @@ block content
                     fibers and cofibers, kernels and cokernels.
                 figure.
                     $$\def\mapright#1{\xrightarrow{{#1}}}
+                      \def\mapleft#1{\xleftarrow{{#1}}}
                       \def\mapdown#1{\Big\downarrow\rlap{\raise2pt{\scriptstyle{#1}}}}
                       \def\mapdiagl#1{\vcenter{\searrow}\rlap{\raise2pt{\scriptstyle{#1}}}}
                       \def\mapdiagr#1{\vcenter{\swarrow}\rlap{\raise2pt{\scriptstyle{#1}}}}
@@ -64,16 +65,27 @@ block content
 
                 h1 PULLBACK
                 p.
+                    <b>Definition</b> (Cospan).
+                    $$
+                      A \mapright{f} C \mapleft{g} B.
+                    $$
+                p.
                     <b>Definition</b> (Homotopy Pullback).
-                    The pullback of the first diagram (which is called cospan)
-                figure.
+                    The homotopy pullback or homotopy limit
+                    (denoted by $\mathrm{holim}$) of the cospan diagram
+                    is the subspace of $A \times B \times C^I$ defined as
                     $$
-                    \begin{array}{ccc}
-                        & & B \\
-                        & & \mapdown{\mathbf{g}} \\
-                        A & \mapright{\mathbf{f}} & C \\
-                    \end{array}
+                        \mathrm{holim}(A \rightarrow C \leftarrow B) \\
+                        = \{ (x,y,h) : \Sigma_A\Sigma_B C^I | h(0)=f(x), h(1)=g(y) \}
                     $$
+                code.
+                  pullback (A B C:U) (f: A -> C) (g: B -> C): U
+                    = (a: A)
+                    * (b: B)
+                    * Path C (f a) (g b)
+                p.
+                    In other words pullback of cospan
+                    together with the projection maps $pb_{1,2,3}$ making the diagram
                 figure.
                     $$
                     \begin{array}{ccc}
@@ -82,20 +94,8 @@ block content
                         A & \mapright{\mathbf{f}} & C \\
                     \end{array}
                     $$
-                figure.
-                    $$
-                        A \times^{h}_{C} B = \Sigma_A\Sigma_B C^I \\
-                        = \left\{ (x,y,h) : \Sigma_X\Sigma_Y C^I | h(0)=f(x), h(1)=g(y) \right\}
-                    $$
-                code.
-                  pullback (A B C:U) (f: A -> C) (g: B -> C): U
-                    = (a: A)
-                    * (b: B)
-                    * Path C (f a) (g b)
                 p.
-                    is a $X \times^h_C Y$
-                    together with the projection maps $pb_{1,2,3}$ making the second
-                    diagram commute up to homotopy $H(x,y,h,t) = h(t)$.
+                    commute up to homotopy $H(x,y,h,t) = h(t)$.
                 p.
                     <b>Definition</b> (Homotopy Pullback Square). A homotopy pullback or cospan
                     is called a homotopy pullback square if there exists a homotopy

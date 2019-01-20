@@ -21,32 +21,32 @@
                     };
 </script><article class="main"><div class="om"><section><h1>LIMITS</h1></section></div><aside><a href="https://tonpa.guru">Максим Сохацький</a><time>15 JAN 2019</time></aside><div class="om"><section><p>It contains the notion of homotopy pullback and pushout,
 fibers and cofibers, kernels and cokernels.</p><figure>$$\def\mapright#1{\xrightarrow{{#1}}}
+  \def\mapleft#1{\xleftarrow{{#1}}}
   \def\mapdown#1{\Big\downarrow\rlap{\raise2pt{\scriptstyle{#1}}}}
   \def\mapdiagl#1{\vcenter{\searrow}\rlap{\raise2pt{\scriptstyle{#1}}}}
   \def\mapdiagr#1{\vcenter{\swarrow}\rlap{\raise2pt{\scriptstyle{#1}}}}
 $$
-</figure><h1>PULLBACK</h1><p><b>Definition</b> (Homotopy Pullback).
-The pullback of the first diagram (which is called cospan)</p><figure>$$
-\begin{array}{ccc}
-    & & B \\
-    & & \mapdown{\mathbf{g}} \\
-    A & \mapright{\mathbf{f}} & C \\
-\end{array}
-$$</figure><figure>$$
+</figure><h1>PULLBACK</h1><p><b>Definition</b> (Cospan).
+$$
+  A \mapright{f} C \mapleft{g} B.
+$$</p><p><b>Definition</b> (Homotopy Pullback).
+The homotopy pullback or homotopy limit
+(denoted by $\mathrm{holim}$) of the cospan diagram
+is the subspace of $A \times B \times C^I$ defined as
+$$
+    \mathrm{holim}(A \rightarrow C \leftarrow B) \\
+    = \{ (x,y,h) : \Sigma_A\Sigma_B C^I | h(0)=f(x), h(1)=g(y) \}
+$$</p><code>pullback (A B C:U) (f: A -> C) (g: B -> C): U
+  = (a: A)
+  * (b: B)
+  * Path C (f a) (g b)</code><p>In other words pullback of cospan
+together with the projection maps $pb_{1,2,3}$ making the diagram</p><figure>$$
 \begin{array}{ccc}
     A \times^{h}_{C} B & \mapright{\mathbf{pb_2}} & B \\
     \mapdown{\mathbf{pb_1}} & \mapdiagl{\mathbf{pb_3}} & \mapdown{\mathbf{g}} \\
     A & \mapright{\mathbf{f}} & C \\
 \end{array}
-$$</figure><figure>$$
-    A \times^{h}_{C} B = \Sigma_A\Sigma_B C^I \\
-    = \left\{ (x,y,h) : \Sigma_X\Sigma_Y C^I | h(0)=f(x), h(1)=g(y) \right\}
-$$</figure><code>pullback (A B C:U) (f: A -> C) (g: B -> C): U
-  = (a: A)
-  * (b: B)
-  * Path C (f a) (g b)</code><p>is a $X \times^h_C Y$
-together with the projection maps $pb_{1,2,3}$ making the second
-diagram commute up to homotopy $H(x,y,h,t) = h(t)$.</p><p><b>Definition</b> (Homotopy Pullback Square). A homotopy pullback or cospan
+$$</figure><p>commute up to homotopy $H(x,y,h,t) = h(t)$.</p><p><b>Definition</b> (Homotopy Pullback Square). A homotopy pullback or cospan
 is called a homotopy pullback square if there exists a homotopy
 equivalence $\phi : Z \rightarrow A \times_C^h B$ satisfying
 $z_1 : Z \rightarrow A = pb_1 \circ \phi$
