@@ -67,6 +67,6 @@ The pushout of the first diagram (which is called span)</p><code>data pushout (A
    | po2 (_: B)
    | po3 (c: C) &lt;i&gt; [ (i = 0) -> po1 (f c) ,
                       (i = 1) -> po2 (g c) ]</code><br><h1>COFIBER</h1><p><b>Definition</b> (Homotopy Cofiber).</p><code>cofiber (A B: U) (f: A -> B): U
-  = pushout B unit A f (\(x: A) -> tt)</code><br><h1>COFIBER</h1><p><b>Definition</b> (Cokernel).</p><code>cokernel (A B: U) (f: B -> A): U
+  = pushout B unit A f (\(x: A) -> tt)</code><br><h1>COKERNEL</h1><p><b>Definition</b> (Cokernel).</p><code>cokernel (A B: U) (f: B -> A): U
   = pushout A A B f f</code><br><h1>LITERATURE</h1><p>[1]. Brian Munson and Ismar Volić. <a href="https://web.math.rochester.edu/people/faculty/doug/otherpapers/munson-volic.pdf">Cubical Homotopy Theory</a><br>
 </p></section></div></article><link rel="stylesheet" href="https://etale.space/styles/main.css?v=4"><footer class="footer"><a href="https://tonpa.guru/"><img class="footer__logo" src="https://longchenpa.guru/seal.png" width="50"></a><span class="footer__copy">2019 &copy; <a href="https://etale.space/" style="color:Lavender;">Étale Infinity</a></span><script src="https://etale.space/styles/highlight.js?v=3"></script></footer>
