@@ -86,7 +86,7 @@ img {
   background: #FBFBFB;
   padding: 50px 0px;
   text-align: center;
-  box-shadow: 0 3px 10px transparent;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0);
   z-index: 5;
   flex: 1 1 auto; }
 
